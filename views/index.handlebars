@@ -1,0 +1,14 @@
+{{#each articles}}
+<div class = "row">
+	<div class = "col-md-12 panel panel-default">
+		<div class = "panel-heading">
+			<div class = "panel-title"> {{articles.title}}
+			</div>
+		</div>
+		<div class = "panel-body">
+			{{articles.excerpt}}
+			{{articles.link}}
+		</div>
+	</div>
+</div>
+{{/each}}

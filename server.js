@@ -4,6 +4,7 @@ var cheerio = require("cheerio");
 var mongoose = require("mongoose");
 var request = require('request');
 var path = require('path');
+var exphbs = require("express-handlebars");
 
 var db = require(path.resolve(__dirname, "./models"));
 var PORT = 8080;
@@ -11,8 +12,11 @@ var PORT = 8080;
 var app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(process.cwd() + '/public'));
 
-// app.use(express.static("public"));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 
 mongoose.Promise = Promise;
 mongoose.connect("mongodb://localhost/onionNews", {
@@ -87,7 +91,9 @@ app.get("/articles", function(req, res) {
     .find({})
     .then(function(dbArticle) {
       // If we were able to successfully find Articles, send them back to the client
-      res.json(dbArticle);
+      var hbsObj = {articles: dbArticle}
+      res.render("index", hbsObj);
+
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
