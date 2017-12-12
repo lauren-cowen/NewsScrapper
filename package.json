@@ -1,0 +1,28 @@
+{
+  "name": "newsscrapper",
+  "version": "1.0.0",
+  "description": "This website uses MongoDB, Express, Mongoose, and cheerio to scrape news from an external website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laurenc234/NewsScrapper.git"
+  },
+  "author": "Lauren Cowen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laurenc234/NewsScrapper/issues"
+  },
+  "homepage": "https://github.com/laurenc234/NewsScrapper#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.13.6",
+    "path": "^0.12.7",
+    "request": "^2.83.0"
+  }
+}
